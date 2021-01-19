@@ -1,0 +1,27 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+    .options{
+        width: 50%;
+        // justify-content: space-between;
+        display: flex;
+        justify-content: flex-end;        
+    }
+        .option{
+            color: rgba(17, 16, 16, 0.795);
+            text-decoration: none;
+            margin-left: 3rem;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            // justify-items: center;
+        }
+            
+            // :not(:first-child){
+            //     margin-left: 1rem;
+            // }
+            // :last-child{
+            //     margin-left: 3rem;
+            // }
