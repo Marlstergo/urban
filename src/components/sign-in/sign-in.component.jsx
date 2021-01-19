@@ -40,11 +40,11 @@ class SignIn extends React.Component{
                 <span>sign in with your email and password</span>
 
                 <form onSubmit={this.handleSubmit}>
-                    <FormInput type="email" name="email" id="email" required placeholder='' value={this.state.email} handleChange={this.handleChange}
+                    <FormInput type="email" name="email" id="sign-in-email" required placeholder='' value={this.state.email} handleChange={this.handleChange}
                     label= 'Email'
                     />
                     
-                    <FormInput type="password" name="password" id="password" required placeholder='' value={this.state.password} handleChange={this.handleChange}
+                    <FormInput type="password" name="password" id="sign-in-password" required placeholder='' value={this.state.password} handleChange={this.handleChange}
                     label = 'password'
                     />
                     <div className='buttons'>
