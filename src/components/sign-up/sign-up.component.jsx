@@ -15,7 +15,7 @@ class SignUp extends React.Component{
             confirmPassword: ''
         }
     }
-    handleSubmit=async (e)=>{
+    handleSubmit= async (e)=>{
         e.preventDefault();
 
 
