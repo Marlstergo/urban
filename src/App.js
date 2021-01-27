@@ -8,12 +8,16 @@ import Login from './pages/sign-in-and-sign-out/sign-in-and-sign-out.component'
 import {auth, createUserProfileDocument} from './firebase/firebase.util'
 import {connect} from 'react-redux';
 import { setCurrentUser } from './redux/user/user.action';
+import {hideCart} from './redux/cart/cart.action'
 
 
 class App extends React.Component {
   unsunscribeFromAuth = null;
+  
   componentDidMount(){
+    
     const {setCurrentUser} = this.props;
+    
     this.unsunscribeFromAuth = auth.onAuthStateChanged(async userAuth =>{
       
       if (userAuth){
@@ -28,20 +32,22 @@ class App extends React.Component {
         })
       } else{
         setCurrentUser(userAuth)
+        
       }
     });
   }
+  
 
   componentWillUnmount(){
     this.unsunscribeFromAuth()
   }
 
-  
+
   render(){
     return (
-      <div>
+      <div onClick={hideCart}>
         <Header/>
-        <Switch>
+        <Switch >
           <Route exact path='/' component={HomePage} />
           <Route exact path='/shop' component={ShopPage} />
           <Route exact path='/sign-in' render={() => 
@@ -61,6 +67,7 @@ const mapStateToProps = state =>({
   currentUser: state.user.currentUser
 })
 const mapDispatchtoProps= dispatch =>({
-  setCurrentUser: user => dispatch(setCurrentUser(user))
+  setCurrentUser: user => dispatch(setCurrentUser(user)),
+  hideCart: () => dispatch(hideCart())
 })
 export default connect(mapStateToProps, mapDispatchtoProps)(App);

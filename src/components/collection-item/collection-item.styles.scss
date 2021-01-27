@@ -5,6 +5,7 @@
     height: 350px;
     align-items: center;
     margin: 0 auto;
+    position: relative;
     
     .image {
         width: 100%;
@@ -30,5 +31,23 @@
         width: 10%;
         }
     }
+    &:hover{
+        Button{
+            opacity: 0.9;
+            visibility:visible;
+        
+            
+        }
+        .image{
+            opacity: .8;
+        }
+          
+    }
+    button{
+        visibility: hidden;
+        position: absolute;
+        top: 75%;
+    
+    }
+    
   }
-  
