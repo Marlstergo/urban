@@ -4,7 +4,7 @@ import {ReactComponent as Logo} from '../../assets/crown.svg'
 import './header.styles.scss'
 import {auth} from '../../firebase/firebase.util'
 import {connect} from 'react-redux'
-import CartIcon from '../cart-icon/cart-item.component'
+import CartIcon from '../cart-icon/cart-icon.component'
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 
 
