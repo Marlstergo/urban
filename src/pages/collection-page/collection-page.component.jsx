@@ -1,14 +1,13 @@
 import React from 'react';
 import CollectionItem from '../../components/collection-item/collection-item.component';
 import {selectCollection} from '../../redux/shop/shop.selector'
-import './collection-page.styles.scss'
-import {connect} from 'react-redux'
 
-const CollectionPage = ({collection}) =>
-{
-    console.log(collection)
+import {connect} from 'react-redux'
+import {CollectionPageContainer} from './collection-page.styles'
+const CollectionPage = ({collection}) =>{
+
     return(
-    <div className='category'> 
+    <CollectionPageContainer> 
         <div className="name">
             <h2>{collection.title}</h2>
         </div>
@@ -20,7 +19,7 @@ const CollectionPage = ({collection}) =>
             )
         }
         </div>
-    </div>
+    </CollectionPageContainer>
 )}
 
 const mapStateToProps = (state, ownProps) =>({
