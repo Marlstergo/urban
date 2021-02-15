@@ -12,7 +12,7 @@ import {hideCart} from './redux/cart/cart.action'
 import {createStructuredSelector} from 'reselect'
 import {selectCurrentUser} from './redux/user/user.selector'
 import CheckoutPage from './pages/checkout-page/checkoutPage.component';
-import {selectCollectionForPreview} from './redux/shop/shop.selector'
+
 
 class App extends React.Component {
   unsunscribeFromAuth = null;
