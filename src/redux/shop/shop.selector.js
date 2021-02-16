@@ -11,7 +11,7 @@ export const selectCollections = createSelector(
 export const selectCollection = collectUrlParam =>
     createSelector(
         [selectCollections],
-        collections => collections ?collections[collectUrlParam] : null
+        collections => collections ? collections[collectUrlParam] : null
         
     )
 
