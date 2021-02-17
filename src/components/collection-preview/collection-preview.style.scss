@@ -7,6 +7,17 @@
     .title {
         font-size: 28px;
         margin-bottom: 25px;
+        transition: position 5s ease-in;
+        // transition-property: position;
+        // transition-duration: 12s;
+        // transition-timing-function: linear;
+
+        &:hover{
+            cursor: pointer;
+            color: rgb(126, 60, 60);
+            position: relative;
+            left: 10px;
+        }
     }
   
     .preview {

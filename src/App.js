@@ -10,7 +10,7 @@ import {connect} from 'react-redux';
 import { setCurrentUser } from './redux/user/user.action';
 import {hideCart} from './redux/cart/cart.action'
 import {createStructuredSelector} from 'reselect'
-import {selectCurrentUser} from './redux/user/user.selector'
+import {selectCurrentUser} from './redux/user/user.selector';
 import CheckoutPage from './pages/checkout-page/checkoutPage.component';
 
 
@@ -78,3 +78,5 @@ const mapDispatchtoProps= dispatch =>({
   
 })
 export default connect(mapStateToProps, mapDispatchtoProps)(App);
+
+
