@@ -8,7 +8,7 @@ import {createStructuredSelector} from 'reselect'
 
 import {connect} from 'react-redux'
 import {fetchCollectionStartAsync} from '../../redux/shop/shop.action'
-import {isCollectionLoading, errorMessage} from '../../redux/shop/shop.selector'
+import {isCollectionLoading, errorMessage, selectIsCollectionsLoaded} from '../../redux/shop/shop.selector'
 
 import WithSpinner from '../../components/with-spinner/with-spinner.component'
 // import CollectionPreview from '../../components/collection-preview/collection-preview.component';
@@ -30,8 +30,7 @@ class ShopPage extends React.Component{
     // }
 
     render(){
-    const {match} = this.props 
-    const {isCollectionFetching} = this.props
+    const {match, isCollectionFetching, collectionLoaded} = this.props
     return (       
     <div className='shop-page'>
         <Route 
@@ -42,7 +41,7 @@ class ShopPage extends React.Component{
         <Route 
             exact
             path={`${match.path}/:collectionId`} 
-            render ={ (props) => <CollectionPageWithSpinner isloading = {isCollectionFetching} {...props}/>
+            render ={ (props) => <CollectionPageWithSpinner isloading = {!collectionLoaded} {...props}/>
         } 
         />
     </div>
@@ -57,7 +56,8 @@ const mapsDispatchToProps= dispatch =>({
 
 const mapStateToProps = createStructuredSelector({
     isCollectionFetching: isCollectionLoading,
-    errorMessage: errorMessage
+    errorMessage: errorMessage,
+    collectionLoaded: selectIsCollectionsLoaded
 })
 
 export default connect(mapStateToProps, mapsDispatchToProps)(ShopPage)

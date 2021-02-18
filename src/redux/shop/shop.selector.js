@@ -28,4 +28,8 @@ export const errorMessage = createSelector(
     [selectShop],
     shop => shop.errorMessage
 )
+export const selectIsCollectionsLoaded = createSelector(
+    [selectShop],
+    shop => !!shop.collections
+  );
 

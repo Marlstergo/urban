@@ -3,6 +3,7 @@ const INITIAL_STATE ={
     collections: null,
     isLoading: false,
     errorMessage: undefined
+    // collectionLoaded: true
 }
 
 const shopReducer = (state= INITIAL_STATE, action) =>{
@@ -16,7 +17,8 @@ const shopReducer = (state= INITIAL_STATE, action) =>{
             return{
                 ...state,
                 collections: action.payload,
-                isLoading: false
+                isLoading: false,
+                // collectionLoaded: false
             }
         case ShopAcionTypes.FETCH_COLLECTION_FAILURE:
             return{
