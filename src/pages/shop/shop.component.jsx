@@ -7,7 +7,7 @@ import CollectionsOverviewContainer from '../../components/collection-overview/c
 import {createStructuredSelector} from 'reselect'
 
 import {connect} from 'react-redux'
-import {fetchCollectionStartAsync} from '../../redux/shop/shop.action'
+import {fetchCollectionStart} from '../../redux/shop/shop.action'
 import { errorMessage, } from '../../redux/shop/shop.selector'
 
 // import WithSpinner from '../../components/with-spinner/with-spinner.component'
@@ -49,8 +49,8 @@ class ShopPage extends React.Component{
 
 
 const mapsDispatchToProps= dispatch =>({
-    updateCollections: collectionsMap =>
-    dispatch(fetchCollectionStartAsync(collectionsMap))
+    updateCollections: () =>
+    dispatch(fetchCollectionStart())
 })
 
 const mapStateToProps = createStructuredSelector({
