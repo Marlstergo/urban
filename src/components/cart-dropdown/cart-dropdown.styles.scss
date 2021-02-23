@@ -9,16 +9,20 @@
     background-color: white;
     top: 80px;
     right: 40px;
-    z-index: 5;
+      scrollbar-color: red;
+      z-index: 5;
   
     .cart-items {
       height: 240px;
       display: flex;
       flex-direction: column;
       overflow-y: scroll;
-      
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
     }
-  
+    .cart-items::-webkit-scrollbar {
+      display: none;
+    }
     button {
       margin-top: auto;
       

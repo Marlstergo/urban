@@ -18,7 +18,7 @@ import { errorMessage, } from '../../redux/shop/shop.selector'
 
 class ShopPage extends React.Component{
     
-    unsubscribeFromSnapshot = null;
+    reactIsLit = null;
     
     componentDidMount(){
 
