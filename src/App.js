@@ -19,31 +19,30 @@ class App extends React.Component {
   
   componentDidMount(){
     
-    const {setCurrentUser, /*collectionArray*/} = this.props;
     
-    this.unsunscribeFromAuth = auth.onAuthStateChanged(async userAuth =>{
+    // this.unsunscribeFromAuth = auth.onAuthStateChanged(async userAuth =>{
       
-      if (userAuth){
-        const userRef = await createUserProfileDocument(userAuth);
+    //   if (userAuth){
+    //     const userRef = await createUserProfileDocument(userAuth);
 
-        userRef.onSnapshot(snapshot => 
-          {
-            setCurrentUser({
-              id: snapshot.id,
-              ...snapshot.data()
-            })
-        })
-      } else{
-        setCurrentUser(userAuth)
+    //     userRef.onSnapshot(snapshot => 
+    //       {
+    //         setCurrentUser({
+    //           id: snapshot.id,
+    //           ...snapshot.data()
+    //         })
+    //     })
+    //   } else{
+    //     setCurrentUser(userAuth)
         
-      }
-    });
+    //   }
+    // });
     // addCollectionAndDocuments('collections', collectionArray.map(({title, items}) => ({items, title })))
   }
   
 
   componentWillUnmount(){
-    this.unsunscribeFromAuth()
+    // this.unsunscribeFromAuth()
   }
 
 
@@ -78,7 +77,7 @@ const mapStateToProps = createStructuredSelector({
   // collectionArray: selectCollectionForPreview
 })
 const mapDispatchtoProps= dispatch =>({
-  setCurrentUser: user => dispatch(setCurrentUser(user)),
+  setCurrentUser: () => dispatch(setCurrentUser()),
   hideCart: () => dispatch(hideCart())
   
 })

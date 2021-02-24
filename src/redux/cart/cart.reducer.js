@@ -1,4 +1,3 @@
-
 import cartActionTypes from './cart.type'
 import {addItemToCart, removeItem} from './cart.utils'
 
