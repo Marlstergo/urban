@@ -1,21 +1,19 @@
 import UserActionTypes from './user.types'
 
-export const setCurrentUser = (user) =>({
-    type: UserActionTypes.SET_CURRENT_USER,
-    payload: user
-})
+
 
 export const googleSignInStart = () => ({
     type: UserActionTypes.GOOGLE_SIGN_IN_START
 })
 
-export const googleSignInSuccess = (user) => ({
-    type: UserActionTypes.GOOGLE_SIGN_IN_SUCCESS,
+export const signInSuccess = (user) => ({
+    type: UserActionTypes.SIGN_IN_SUCCESS,
     payload: user
 })
 
-export const googleSignInFailure = (error) => ({
-    type: UserActionTypes.GOOGLE_SIGN_IN_FAILURE
+export const signInFailure = (error) => ({
+    type: UserActionTypes.SIGN_IN_FAILURE,
+    payload: error
 })
 
 export const emailSignInStart = (emailAndPassword) => ({
@@ -23,11 +21,23 @@ export const emailSignInStart = (emailAndPassword) => ({
     payload: emailAndPassword
 })
 
-export const emailSignInSuccess = (user) => ({
-    type: UserActionTypes.EMAIL_SIGN_IN_SUCCESS,
+export const checkUserSession = (user) => ({
+    type: UserActionTypes.CHECK_USER_SESSION,
     payload: user
 })
 
-export const emailSignInFailure = (error) => ({
-    type: UserActionTypes.EMAIL_SIGN_IN_FAILURE
-})
+
+// export const signUpWithEmailStart = (userDetails) => ({
+//     type: UserActionTypes.SIGN_UP_WITH_EMAIL_START,
+//     payload: userDetails
+// })
+
+// export const signUpWithEmailSuccess = (user) => ({
+//     type: UserActionTypes.SIGN_UP_WITH_EMAIL_START,
+//     payload: user
+// })
+
+// export const signUpWithEmailFailure = (error) => ({
+//     type: UserActionTypes.SIGN_UP_WITH_EMAIL_START,
+//     payload: error
+// })

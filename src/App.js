@@ -5,21 +5,22 @@ import HomePage from './pages/homepage/homepage.component';
 import ShopPage from './pages/shop/shop.component';
 import Header from './components/header/header.component'
 import Login from './pages/sign-in-and-sign-out/sign-in-and-sign-out.component'
-import {auth, createUserProfileDocument, /*addCollectionAndDocuments*/} from './firebase/firebase.util'
 import {connect} from 'react-redux';
-import { setCurrentUser } from './redux/user/user.action';
-import {hideCart} from './redux/cart/cart.action'
 import {createStructuredSelector} from 'reselect'
-import {selectCurrentUser} from './redux/user/user.selector';
+// import {hideCart} from './redux/cart/cart.action'
+
+
 import CheckoutPage from './pages/checkout-page/checkoutPage.component';
 import ContactPage from './pages/contact-page/contact-page.component'
+import { selectCurrentUser } from './redux/user/user.selector';
+import { checkUserSession } from './redux/user/user.action';
 
 class App extends React.Component {
   unsunscribeFromAuth = null;
   
   componentDidMount(){
-    
-    
+    const {checkUserSession} = this.props
+    checkUserSession()
     // this.unsunscribeFromAuth = auth.onAuthStateChanged(async userAuth =>{
       
     //   if (userAuth){
@@ -72,15 +73,15 @@ class App extends React.Component {
   }
 
 }
+
 const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser,
-  // collectionArray: selectCollectionForPreview
+  currentUser: selectCurrentUser
 })
-const mapDispatchtoProps= dispatch =>({
-  setCurrentUser: () => dispatch(setCurrentUser()),
-  hideCart: () => dispatch(hideCart())
-  
+
+const mapDispatchToProps = dispatch => ({
+  checkUserSession: () => dispatch(checkUserSession())
 })
-export default connect(mapStateToProps, mapDispatchtoProps)(App);
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
 
 
