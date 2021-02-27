@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './shop.style.scss';
 import { Route } from 'react-router-dom'
 // import SHOP_DATA from './shop.data';
@@ -16,21 +16,16 @@ import { errorMessage, } from '../../redux/shop/shop.selector'
 
 // const CollectionOverviewWithSpinner= WithSpinner(CollectionOverview)
 
-class ShopPage extends React.Component{
+const ShopPage = ({updateCollections, match}) => {
     
-    reactIsLit = null;
-    
-    componentDidMount(){
-
-        const {updateCollections} = this.props
+    useEffect( () =>{
         updateCollections()
-    }
+    }, [updateCollections])
+    
     // componentWillUnmount(){
     //     this.unsubscribeFromSnapshot()
     // }
 
-    render(){
-    const {match} = this.props
     return (       
     <div className='shop-page'>
         <Route 
@@ -45,7 +40,7 @@ class ShopPage extends React.Component{
         />
     </div>
 )}
-}
+
 
 
 const mapsDispatchToProps= dispatch =>({
